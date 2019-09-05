@@ -4,10 +4,9 @@ param(
     [Parameter(Mandatory=$true)]
     [string] $SitAccountKey,   
     [Parameter(Mandatory=$true)]
-    [string] $PPAccountKey
+    [string] $PPAccountKey,
+    [string] $dataMigrationExePath = "C:\ProgramData\chocolatey\lib\azure-documentdb-data-migration-tool\tools\dt.exe"
 )
-
-$dtExe = "C:\ProgramData\chocolatey\lib\azure-documentdb-data-migration-tool\tools\dt.exe"
 
 $sourceConnection = "AccountEndpoint=https://dfc-dev-prov-cdb.documents.azure.com:443/;AccountKey=$($DevAccountKey);Database=providerportal"
 $sitConnection = "AccountEndpoint=https://dfc-sit-prov-cdb.documents.azure.com:443/;AccountKey=$($SitAccountKey);Database=providerportal"
@@ -25,7 +24,7 @@ $params = @(
     "/t.Collection:coursetext" 
 )
 
-& $dtExe $params
+& $dataMigrationExePath $params
 
 Write-Host "migrating coursetext collection from DEV to PP...."
 
@@ -39,6 +38,6 @@ $params = @(
     "/t.Collection:coursetext" 
 )
 
-& $dtExe $params
+& $dataMigrationExePath $params
 
 Write-Host "Migration for coursetext collection completed."

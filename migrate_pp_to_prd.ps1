@@ -2,10 +2,10 @@ param(
     [Parameter(Mandatory=$true)]
     [string] $SourceAccountKey,
     [Parameter(Mandatory=$true)]
-    [string] $TargetAccountKey
+    [string] $TargetAccountKey,
+    [string] $dataMigrationExePath = "C:\ProgramData\chocolatey\lib\azure-documentdb-data-migration-tool\tools\dt.exe"
 )
 
-$dtExe = "C:\ProgramData\chocolatey\lib\azure-documentdb-data-migration-tool\tools\dt.exe"
 
 $cosmosCollections = @(
     "apprenticeship",
@@ -27,7 +27,7 @@ $cosmosCollections = @(
 )
 
 $sourceConnection = "AccountEndpoint=https://dfc-pp-prov-cdb.documents.azure.com:443/;AccountKey=$($SourceAccountKey);Database=providerportal"
-$targetConnection = "AccountEndpoint=https://dfc-prd-prov-cdb.documents.azure.com:443/;AccountKey=;$($TargetAccountKey);Database=providerportal"
+$targetConnection = "AccountEndpoint=https://dfc-prd-prov-cdb.documents.azure.com:443/;AccountKey=$($TargetAccountKey);Database=providerportal"
 
 Write-Host "migrating cosmosdb collections from PP to PRD...."
 foreach($collection in $cosmosCollections) {
@@ -45,7 +45,7 @@ foreach($collection in $cosmosCollections) {
 
     Write-Host "Migration for collection $($collection) completed."
 
-    & $dtExe $params
+    & $dataMigrationExePath $params
 }
 
 Write-Host "CosmosDb migration complete."
