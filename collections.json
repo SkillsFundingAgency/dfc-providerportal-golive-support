@@ -1,0 +1,69 @@
+[
+    {
+        "Name": "apprenticeship",
+        "RequestUnits": 400
+    },
+    {
+         "Name": "audit",
+         "PartitionKey": "/Collection",
+         "RequestUnits": 400
+    },
+    {
+       "Name": "courseMigrationReports",
+        "RequestUnits": 400 
+    },
+    {
+        "Name": "courses",
+        "PartitionKey": "/ProviderUKPRN",
+        "RequestUnits": 400
+    },
+    {
+        "Name": "coursetext",
+        "RequestUnits": 400
+    },
+    {
+        "Name": "DfcReport",
+        "RequestUnits": 400
+    },
+    {
+        "Name": "fechoices", 
+        "PartitionKey": "/UKPRN", 
+        "RequestUnits": 400
+    },
+    {
+       "Name": "frameworks",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "leases",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "progTypes",
+       "RequestUnits": 400
+    },    
+    {
+       "Name": "sectorsubjectareatier1s",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "sectorsubjectareatier2s",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "standards",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "standardsectorcodes",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "ukrlp",
+       "RequestUnits": 400
+    },
+    {
+       "Name": "venues",
+       "RequestUnits": 400
+    }
+]
